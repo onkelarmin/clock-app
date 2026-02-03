@@ -1,0 +1,78 @@
+@use "../core" as *;
+@use "sass:list";
+@use "sass:map";
+
+:root {
+  // Breakpoints
+  @each $size, $value in $breakpoints {
+    --bp-#{$size}: #{px-to-em($value)};
+  }
+
+  // Wrapper max-widths
+  @each $size, $value in $wrapper-sizes {
+    --size-wrapper-#{$size}: #{px-to-rem($value)};
+  }
+
+  // Logo
+  @each $size, $value in $logo-sizes {
+    --size-logo-#{$size}: #{$value};
+  }
+
+  // Icon
+  @each $size, $value in $icon-sizes {
+    --size-icon-#{$size}: #{$value};
+  }
+
+  // Selectable sizing
+  @each $element, $property-map in $selectable-sizes {
+    @each $property, $value in $property-map {
+      --size-#{$element}-#{$property}: #{$value};
+    }
+  }
+
+  // Selectable padding
+  @each $size, $value in $padding-selectable {
+    --pad-select-#{$size}: #{$value};
+  }
+
+  // Page padding
+  @each $direction, $value in $padding-page {
+    --pad-page-#{$direction}: #{$value};
+  }
+
+  // Section
+  @each $size, $value in $padding-section {
+    --pad-sect-#{$size}: #{$value};
+  }
+
+  // Container padding
+  @each $size, $value in $padding-container {
+    --pad-cont-#{$size}: #{$value};
+  }
+
+  // Container spacing
+  @each $size, $value in $spacer-container {
+    --space-cont-#{$size}: #{$value};
+  }
+
+  // Breakpoint-specific sizes
+  @function get-breakpoint-specific-name($list) {
+    @return #{list.nth($list, 1)}-#{list.nth($list, 2)}-#{list.nth($list, 3)};
+  }
+  @each $size-list in $breakpoint-specific-sizes {
+    $name: get-breakpoint-specific-name($size-list);
+    --size-#{$name}: #{px-to-rem(list.nth($size-list, 1) * 1px)};
+  }
+  @each $size-list in $breakpoint-specific-sizes {
+    $name: get-breakpoint-specific-name($size-list);
+    @media (min-width: #{px-to-em(map.get($breakpoints, "medium"))}) {
+      --size-#{$name}: #{px-to-rem(list.nth($size-list, 2) * 1px)};
+    }
+  }
+  @each $size-list in $breakpoint-specific-sizes {
+    $name: get-breakpoint-specific-name($size-list);
+    @media (min-width: #{px-to-em(map.get($breakpoints, "large"))}) {
+      --size-#{$name}: #{px-to-rem(list.nth($size-list, 3) * 1px)};
+    }
+  }
+}

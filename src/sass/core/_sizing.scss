@@ -1,0 +1,66 @@
+@use "helper" as *;
+@use "page" as *;
+
+// Wrapper max-widths
+$wrapper-sizes: (
+  default: 1170px,
+  narrow: 1088px,
+  wide: 1360px,
+);
+
+// Static sizes
+$static-sizes: (
+  2: 2px,
+  4: 4px,
+  6: 6px,
+  8: 8px,
+  10: 10px,
+  12: 12px,
+  16: 16px,
+  20: 20px,
+  24: 24px,
+  32: 32px,
+  40: 40px,
+  48: 48px,
+  64: 64px,
+);
+
+// Breakpoint-specific sizes
+$breakpoint-specific-sizes: ((20, 24, 24), (24, 32, 32), (24, 32, 48));
+
+//  Logo
+$size-logo-width-min: 208px;
+$size-logo-width-max: 260px;
+
+$logo-sizes: (
+  md: fluid($size-logo-width-min, $size-logo-width-max),
+);
+
+// Icons
+$size-icon-theme-min: 22px;
+$size-icon-theme-max: 22px;
+$size-icon-card-min: 60px;
+$size-icon-card-max: 60px;
+
+$icon-sizes: (
+  theme: fluid($size-icon-theme-min, $size-icon-theme-max),
+  card: fluid($size-icon-card-min, $size-icon-card-max),
+);
+
+// Selectables : Element -> Property
+$size-toggle-thumb-min: 16px;
+$size-toggle-thumb-max: 16px;
+$size-toggle-track-width-min: 36px;
+$size-toggle-track-width-max: 36px;
+$size-toggle-track-height-min: 20px;
+$size-toggle-track-height-max: 20px;
+
+$selectable-sizes: (
+  toggle: (
+    thumb: fluid($size-toggle-thumb-min, $size-toggle-thumb-max),
+    track-width:
+      fluid($size-toggle-track-width-min, $size-toggle-track-width-max),
+    track-height:
+      fluid($size-toggle-track-height-min, $size-toggle-track-height-max),
+  ),
+);

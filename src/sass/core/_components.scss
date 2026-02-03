@@ -1,0 +1,166 @@
+// Buttons
+$button-colors: (
+  default: (
+    idle: (
+      bg: (
+        light: "neutral-900",
+      ),
+      fg: (
+        light: "neutral-000",
+      ),
+    ),
+    hover: (
+      bg: (
+        light: "neutral-800",
+      ),
+      fg: (
+        light: "neutral-000",
+      ),
+    ),
+    focus: (
+      outline: (
+        light: "neutral-900",
+      ),
+    ),
+  ),
+  select: (
+    idle: (
+      bg: (
+        light: "neutral-000",
+      ),
+      fg: (
+        light: "neutral-900",
+      ),
+      border: (
+        light: "neutral-300",
+      ),
+    ),
+    hover: (
+      bg: (
+        light: "neutral-000",
+      ),
+      fg: (
+        light: "neutral-900",
+      ),
+      border: (
+        light: "neutral-900",
+      ),
+    ),
+    focus: (
+      bg: (
+        light: "neutral-000",
+      ),
+      fg: (
+        light: "neutral-900",
+      ),
+      offset: (
+        light: "neutral-000",
+      ),
+      outline: (
+        light: "neutral-900",
+      ),
+    ),
+    selected: (
+      bg: (
+        light: "neutral-000",
+      ),
+      fg: (
+        light: "neutral-900",
+      ),
+      border: (
+        light: "neutral-900",
+      ),
+    ),
+  ),
+);
+
+$button-appearance: (
+  padding-inline: (
+    select: 16px,
+    nav: 16px,
+    hero: 32px,
+    cta: 24px,
+    card: 32px,
+  ),
+  padding-block: (
+    select: 10px,
+    nav: 12px,
+    hero: 16px,
+    cta: 16px,
+    card: 12px,
+  ),
+  border-width: (
+    default: 0px,
+    select: 1px,
+  ),
+  outline-width: (
+    default: 2px,
+    select: 2px,
+  ),
+  offset-width: (
+    default: 3px,
+    select: 2px,
+  ),
+  border-radius: (
+    default: 10px,
+    card: 1000px,
+  ),
+  icon-size: (
+    default: 20px,
+  ),
+  gap: (
+    default: 8px,
+  ),
+);
+
+// Skip-nav-link
+$skip-nav-link-colors: (
+  bg: (
+    light: "neutral-000",
+  ),
+  fg: (
+    light: "neutral-900",
+  ),
+  border: (
+    light: "neutral-900",
+  ),
+);
+
+$skip-nav-link-appearance: (
+  padding-inline: 32px,
+  padding-block: 16px,
+  border-width: 2px,
+  border-radius: 16px,
+);
+
+// Nav-toggle
+$nav-toggle-colors: (
+  idle: (
+    bg: (
+      light: "neutral-300",
+    ),
+    fg: (
+      light: "neutral-900",
+    ),
+    border: (
+      light: "transparent",
+    ),
+  ),
+  focus: (
+    outline: (
+      light: "neutral-900",
+    ),
+  ),
+);
+
+$nav-toggle-appearance: (
+  width: 40px,
+  height: 40px,
+  border-width: 0px,
+  border-radius: 4px,
+  line-width: 18px,
+  line-height: 2px,
+  line-gap: 5px,
+  outline-width: 2px,
+  offset-width: 2px,
+);

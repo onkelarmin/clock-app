@@ -1,0 +1,81 @@
+@use "helper" as *;
+@use "page" as *;
+
+// Page padding
+$padding-page-inline-min: 16px;
+$padding-page-inline-max: 32px;
+$padding-page-block-start-min: 24px;
+$padding-page-block-start-max: 40px;
+$padding-page-block-end-min: 64px;
+$padding-page-block-end-max: 64px;
+
+$padding-page: (
+  inline-start:
+    fluid($padding-page-inline-min, $padding-page-inline-max, "min", "medium"),
+  inline-end:
+    fluid($padding-page-inline-min, $padding-page-inline-max, "min", "medium"),
+  block-start:
+    fluid(
+      $padding-page-block-start-min,
+      $padding-page-block-start-max,
+      "large",
+      "max"
+    ),
+  block-end: fluid($padding-page-block-end-min, $padding-page-block-end-max),
+);
+
+// Section padding
+$padding-section-md-min: 40px;
+$padding-section-md-max: 64px;
+
+$padding-section: (
+  md: fluid($padding-section-md-min, $padding-section-md-max),
+);
+
+// Container padding
+$padding-container-sm-min: 8px;
+$padding-container-sm-max: 12px;
+$padding-container-md-min: 12px;
+$padding-container-md-max: 16px;
+$padding-container-lg-min: 20px;
+$padding-container-lg-max: 20px;
+
+$padding-container: (
+  sm: fluid($padding-container-sm-min, $padding-container-sm-max),
+  md: fluid($padding-container-md-min, $padding-container-md-max),
+  lg: fluid($padding-container-lg-min, $padding-container-lg-max),
+);
+
+// Container spacing
+$spacer-container-sm-min: 8px;
+$spacer-container-sm-max: 8px;
+$spacer-container-md-min: 12px;
+$spacer-container-md-max: 12px;
+$spacer-container-lg-min: 16px;
+$spacer-container-lg-max: 16px;
+$spacer-container-xl-min: 24px;
+$spacer-container-xl-max: 24px;
+
+$spacer-container: (
+  sm: fluid($spacer-container-sm-min, $spacer-container-sm-max),
+  md: fluid($spacer-container-md-min, $spacer-container-md-max),
+  lg: fluid($spacer-container-lg-min, $spacer-container-lg-max),
+  xl: fluid($spacer-container-xl-min, $spacer-container-xl-max),
+);
+
+// Selectable padding
+$padding-selectable-xs-min: 8px;
+$padding-selectable-xs-max: 8px;
+$padding-selectable-sm-min: 14px;
+$padding-selectable-sm-max: 14px;
+$padding-selectable-md-min: 16px;
+$padding-selectable-md-max: 16px;
+$padding-selectable-lg-min: 20px;
+$padding-selectable-lg-max: 20px;
+
+$padding-selectable: (
+  xs: fluid($padding-selectable-xs-min, $padding-selectable-xs-max),
+  sm: fluid($padding-selectable-sm-min, $padding-selectable-sm-max),
+  md: fluid($padding-selectable-md-min, $padding-selectable-md-max),
+  lg: fluid($padding-selectable-lg-min, $padding-selectable-lg-max),
+);

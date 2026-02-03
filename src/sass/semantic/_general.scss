@@ -1,0 +1,21 @@
+body {
+  font: var(--font-5);
+  letter-spacing: var(--ls-md);
+  color: var(--fg-text-base);
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-canvas-gradient-start),
+    var(--bg-canvas-gradient-end)
+  );
+  padding-block-end: var(--pad-page-block-end);
+}
+
+::selection {
+  background-color: var(--bg-text-selection);
+  color: var(--fg-text-selection);
+}
+
+::target-text {
+  background-color: var(--bg-text-target);
+  color: var(--fg-text-target);
+}

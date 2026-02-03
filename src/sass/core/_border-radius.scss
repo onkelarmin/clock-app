@@ -1,0 +1,23 @@
+@use "helper" as *;
+@use "page" as *;
+@use "sass:map";
+
+// Border-radius
+$border-radius-sm-min: 12px;
+$border-radius-sm-max: 12px;
+$border-radius-md-min: 10px;
+$border-radius-md-max: 20px;
+$border-radius-lg-min: 20px;
+$border-radius-lg-max: 20px;
+
+$border-radius: (
+  sm: fluid($border-radius-sm-min, $border-radius-sm-max),
+  md:
+    fluid(
+      $border-radius-md-min,
+      $border-radius-md-max,
+      $viewport-min,
+      map.get($breakpoints, "medium")
+    ),
+  lg: fluid($border-radius-lg-min, $border-radius-lg-max),
+);
