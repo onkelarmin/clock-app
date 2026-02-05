@@ -1,170 +1,93 @@
 @use "helper" as *;
-@use "page" as *;
 
 // Font-family
 @font-face {
-  font-family: "Nunito";
-  src: url("/fonts/Nunito.woff2") format("woff2");
-  font-weight: 200 1000;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "NunitoSans";
-  src: url("/fonts/NunitoSans.woff2") format("woff2");
-  font-weight: 200 1000;
+  font-family: "Inter";
+  src: url("/fonts/Inter.woff2") format("woff2");
+  font-weight: 100 900;
   font-display: swap;
 }
 
 $font-family: (
-  base: "'Nunito', system-ui, sans-serif",
-  accent: "'NunitoSans', system-ui, sans-serif",
-);
-
-// Font-sizes
-// Body
-$font-size-body-sm-min: 16px;
-$font-size-body-sm-max: 16px;
-$font-size-body-md-min: 20px;
-$font-size-body-md-max: 20px;
-// Title
-$font-size-title-xs-min: 20px;
-$font-size-title-xs-max: 20px;
-$font-size-title-sm-min: 24px;
-$font-size-title-sm-max: 24px;
-$font-size-title-md-min: 32px;
-$font-size-title-md-max: 32px;
-$font-size-title-lg-min: 40px;
-$font-size-title-lg-max: 48px;
-$font-size-title-xl-min: 52px;
-$font-size-title-xl-max: 72px;
-// Interface
-$font-size-interface-xs-min: 14px;
-$font-size-interface-xs-max: 14px;
-$font-size-interface-sm-min: 16px;
-$font-size-interface-sm-max: 16px;
-$font-size-interface-md-min: 18px;
-$font-size-interface-md-max: 18px;
-$font-size-interface-lg-min: 20px;
-$font-size-interface-lg-max: 20px;
-
-$font-sizes: (
-  body: (
-    sm: fluid($font-size-body-sm-min, $font-size-body-sm-max),
-    md: fluid($font-size-body-md-min, $font-size-body-md-max),
-  ),
-  title: (
-    xs: fluid($font-size-title-xs-min, $font-size-title-xs-max),
-    sm: fluid($font-size-title-sm-min, $font-size-title-sm-max),
-    md: fluid($font-size-title-md-min, $font-size-title-md-max),
-    lg: fluid($font-size-title-lg-min, $font-size-title-lg-max, "min", "medium"),
-    xl: fluid($font-size-title-xl-min, $font-size-title-xl-max),
-  ),
-  interface: (
-    xs: fluid($font-size-interface-xs-min, $font-size-interface-xs-max),
-    sm: fluid($font-size-interface-sm-min, $font-size-interface-sm-max),
-    md: fluid($font-size-interface-md-min, $font-size-interface-md-max),
-    lg: fluid($font-size-interface-lg-min, $font-size-interface-md-max),
-  ),
+  base: "'Inter', system-ui, sans-serif",
 );
 
 // Font-weights
 $font-weights: (
+  thin: 100,
+  extra-light: 200,
+  light: 300,
   regular: 400,
   medium: 500,
   semi-bold: 600,
   bold: 700,
   extra-bold: 800,
-);
-
-// Line-heights
-$line-heights: (
-  xs: 1.1,
-  sm: 1.2,
-  md: 1.3,
-  lg: 1.4,
-  xl: 1.5,
-);
-
-// Letter-spacing
-$letter-spacing: (
-  xs: -2px,
-  sm: -1px,
-  md: -0.5px,
-  lg: -0.4px,
-  xl: -0.3px,
+  black: 900,
 );
 
 // Fonts
 $fonts: (
   1: (
     "family": "base",
-    "size": "title-xl",
-    "weight": "extra-bold",
-    "line-height": "xs",
-    "letter-spacing": "xs",
+    "size": fluid(100px, 200px),
+    "weight": "bold",
+    "line-height": 0.73,
+    "letter-spacing": fluid(-2.5px, -5px),
   ),
   2: (
     "family": "base",
-    "size": "title-lg",
-    "weight": "extra-bold",
-    "line-height": "sm",
-    "letter-spacing": "xs",
+    "size": fluid(20px, 56px),
+    "weight": "bold",
+    "line-height": 1.2,
+    "letter-spacing": 0px,
   ),
   3: (
     "family": "base",
-    "size": "title-md",
-    "weight": "bold",
-    "line-height": "md",
-    "letter-spacing": "sm",
+    "size": fluid(20px, 40px),
+    "weight": "light",
+    "line-height": 0.73,
+    "letter-spacing": 0px,
   ),
   4: (
     "family": "base",
-    "size": "title-sm",
+    "size": fluid(15px, 24px),
     "weight": "bold",
-    "line-height": "md",
-    "letter-spacing": "sm",
+    "line-height": 1.1,
+    "letter-spacing": fluid(3px, 4.8px),
   ),
   5: (
     "family": "base",
-    "size": "title-xs",
-    "weight": "bold",
-    "line-height": "lg",
-    "letter-spacing": "md",
+    "size": rem(20px),
+    "weight": "regular",
+    "line-height": 1.1,
+    "letter-spacing": rem(4px),
   ),
   6: (
-    "family": "accent",
-    "size": "body-md",
-    "weight": "medium",
-    "line-height": "xl",
-    "letter-spacing": "lg",
+    "family": "base",
+    "size": rem(18px),
+    "weight": "regular",
+    "line-height": 1.5,
+    "letter-spacing": 0px,
   ),
   7: (
     "family": "base",
-    "size": "interface-md",
-    "weight": "semi-bold",
-    "line-height": "xl",
-    "letter-spacing": "xl",
+    "size": rem(18px),
+    "weight": "bold",
+    "line-height": 1.5,
+    "letter-spacing": 0px,
   ),
   8: (
-    "family": "accent",
-    "size": "interface-sm",
+    "family": "base",
+    "size": rem(16px),
     "weight": "bold",
-    "line-height": "xl",
-    "letter-spacing": "xl",
+    "line-height": 1.4,
+    "letter-spacing": rem(5px),
   ),
   9: (
-    "family": "accent",
-    "size": "body-sm",
-    "weight": "medium",
-    "line-height": "xl",
-    "letter-spacing": "xl",
-  ),
-  10: (
-    "family": "accent",
-    "size": "interface-xs",
-    "weight": "bold",
-    "line-height": "xl",
-    "letter-spacing": "xl",
+    "family": "base",
+    "size": fluid(10px, 15px),
+    "weight": "regular",
+    "line-height": 1.5,
+    "letter-spacing": fluid(2px, 3px),
   ),
 );

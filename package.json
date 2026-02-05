@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "astro": "^5.16.6",
-    "astro-icon": "^1.1.5",
     "gsap": "^3.14.2"
   },
   "devDependencies": {

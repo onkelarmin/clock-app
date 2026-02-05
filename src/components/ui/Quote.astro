@@ -1,0 +1,77 @@
+---
+// Asset imports
+import RefreshSvg from "@svg/icon-refresh.svg";
+---
+
+<div class="layout">
+  <figure>
+    <blockquote>
+      <p class="quote-content">
+        “The science of operations, as derived from mathematics more especially,
+        is a science of itself, and has its own abstract truth and value.”
+      </p>
+    </blockquote>
+
+    <figcaption class="quote-author">Ada Lovelace</figcaption>
+  </figure>
+
+  <button class="quote-button" type="button">
+    <RefreshSvg class="refresh-svg" />
+    <span class="visually-hidden">Load another quote</span>
+  </button>
+</div>
+
+<style lang="scss">
+  .layout {
+    --button-padding: var(--size-2);
+
+    display: flex;
+    gap: calc(var(--space-cont-md) - var(--button-padding));
+
+    .quote-content {
+      max-width: 48ch;
+      font: var(--font-6);
+      letter-spacing: var(--ls-6);
+    }
+
+    .quote-author {
+      font: var(--font-7);
+      letter-spacing: var(--ls-7);
+      margin-block-start: var(--space-cont-sm);
+    }
+
+    .quote-button {
+      align-self: flex-start;
+      display: grid;
+      place-items: center;
+      background-color: transparent;
+      border: none;
+      padding: var(--button-padding);
+      margin-block-start: var(--size-8);
+      color: var(--fg-svg-refresh-idle);
+      transition: color var(--trans-default);
+
+      .refresh-svg {
+        width: var(--size-svg-refresh);
+      }
+
+      &:not(:disabled) {
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: 0px solid transparent;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--fg-svg-refresh-hover);
+        }
+      }
+
+      &:focus-visible {
+        outline: var(--size-2) solid var(--fg-svg-refresh-hover);
+      }
+    }
+  }
+</style>

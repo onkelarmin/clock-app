@@ -45,6 +45,18 @@
   .border-#{$type} {
     border: var(--border-#{$type});
   }
+  .border-top-#{$type} {
+    border-top: var(--border-#{$type});
+  }
+  .border-bottom-#{$type} {
+    border-bottom: var(--border-#{$type});
+  }
+  .border-left-#{$type} {
+    border-left: var(--border-#{$type});
+  }
+  .border-right-#{$type} {
+    border-right: var(--border-#{$type});
+  }
 }
 
 .border-none {
@@ -59,26 +71,10 @@
 }
 
 // Fonts
-@each $name, $property-map in $fonts {
-  .font-#{$name} {
-    font: var(--font-#{$name});
-    letter-spacing: var(--ls-#{map.get($property-map, "letter-spacing")});
-  }
-}
-
-// Font-sizes
-@each $category, $size-map in $font-sizes {
-  @each $size, $value in $size-map {
-    .fs-#{$category}-#{$size} {
-      font-size: var(--fs-#{$category}-#{$size});
-    }
-  }
-}
-
-// Font-weights
-@each $size, $value in $font-weights {
-  .fw-#{$size} {
-    font-weight: var(--fw-#{$size});
+@each $preset, $property-map in $fonts {
+  .font-#{$preset} {
+    font: var(--font-#{$preset});
+    letter-spacing: var(--ls-#{$preset});
   }
 }
 

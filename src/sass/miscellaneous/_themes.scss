@@ -11,15 +11,3 @@
     @include theme-vars(dark);
   }
 }
-
-// Brand
-[data-brand="primary"] {
-  $custom-brand: "primary";
-  @each $brand, $key-map in $color-core-brand {
-    @if $brand == $custom-brand {
-      @each $key, $value in $key-map {
-        --clr-brand-#{$key}: var(--clr-brand-#{$brand}-#{$key});
-      }
-    }
-  }
-}

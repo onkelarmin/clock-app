@@ -36,13 +36,4 @@
       @include theme-vars(dark);
     }
   }
-
-  // Brand
-  @each $brand, $key-map in $color-core-brand {
-    @if $brand == $default-brand {
-      @each $key, $value in $key-map {
-        --clr-brand-#{$key}: var(--clr-brand-#{$brand}-#{$key});
-      }
-    }
-  }
 }

@@ -7,32 +7,19 @@
     --ff-#{$semantic}: #{$value};
   }
 
-  // Font-sizes
-  @each $category, $size-map in $font-sizes {
-    @each $size, $value in $size-map {
-      --fs-#{$category}-#{$size}: #{$value};
-    }
-  }
-
-  // Font-weights
-  @each $size, $value in $font-weights {
-    --fw-#{$size}: #{$value};
-  }
-
-  // Line-height
-  @each $size, $value in $line-heights {
-    --lh-#{$size}: #{$value};
+  // Fonts
+  @each $preset, $property-map in $fonts {
+    --font-#{$preset}: #{map.get(
+        $font-weights,
+        #{map.get($property-map, "weight")}
+      )}
+      #{map.get($property-map, "size")} /
+      #{map.get($property-map, "line-height")}
+      var(--ff-#{map.get($property-map, "family")});
   }
 
   // Letter-spacing
-  @each $size, $value in $letter-spacing {
-    --ls-#{$size}: #{$value};
-  }
-
-  @each $name, $property-map in $fonts {
-    --font-#{$name}: var(--fw-#{map.get($property-map, "weight")})
-      var(--fs-#{map.get($property-map, "size")}) /
-      var(--lh-#{map.get($property-map, "line-height")})
-      var(--ff-#{map.get($property-map, "family")});
+  @each $preset, $property-map in $fonts {
+    --ls-#{$preset}: #{map.get($property-map, "letter-spacing")};
   }
 }

@@ -1,14 +1,10 @@
-@use "sass:color";
-
 // bs-none is used for transitions
 $box-shadow-colors: (
   none: (
     light: "transparent",
-    dark: "transparent",
   ),
   mobile-nav-menu: (
     light: "neutral-600" 0.16,
-    dark: "neutral-200" 0.16,
   ),
 );
 

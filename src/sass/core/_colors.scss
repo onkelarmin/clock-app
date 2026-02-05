@@ -1,47 +1,30 @@
 // Primitives
 $color-core-neutral: (
-  "000": oklch(0.9927 0.0026 228.78),
-  "000-o70": oklch(0.9927 0.0026 228.78 / 0.7),
-  "100": oklch(0.9466 0 0),
-  "200": oklch(0.9092 0.0292 259.94),
-  "200-o70": oklch(0.9092 0.0292 259.94/ 0.7),
-  "300": oklch(0.8294 0 0),
-  "600": oklch(0.465 0.0265 271.98),
-  "700": oklch(0.3364 0.0386 270.01),
-  "800": oklch(0.2698 0.0319 271.09),
-  "900": oklch(0.2152 0.0818 267.2),
-  "900-o70": oklch(0.2152 0.0818 267.2 / 0.7),
+  "000": hsl(0, 0%, 100%),
+  "500": hsl(0, 0%, 50%),
+  "800": hsl(0, 0%, 19%),
+  "900": hsl(0, 0%, 0%),
 );
 
 $color-core-accent: (
-  "orange": (
-    "500": #fe9f6b,
-  ),
-  "teal": (
-    "500": #49ac9b,
-  ),
-  "indigo": (
-    "500": #697ddb,
-  ),
+  // "orange": (
+  //   "500": #fe9f6b,
+   // ),
 );
 
 $color-core-brand: (
-  "primary": (
-    "400": oklch(0.6701 0.1862 26.35),
-    "500": oklch(0.6119 0.1893 27.23),
-    "700": oklch(0.5346 0.1993 29.02),
-  ),
+  // "primary": (
+  //   "400": oklch(0.6701 0.1862 26.35),
+  //   "500": oklch(0.6119 0.1893 27.23),
+  //   "700": oklch(0.5346 0.1993 29.02),
+   // ),
 );
 
 $color-core-gradient: (
-  1: (
-    start: oklch(0.9588 0.0154 257.2),
-    end: oklch(0.9779 0.0139 185.96),
-  ),
-  2: (
-    start: oklch(0.1459 0.0403 266.38),
-    end: oklch(0.2179 0.0835 267.08),
-  ),
+  // 1: (
+  //   start: oklch(0.9588 0.0154 257.2),
+  //   end: oklch(0.9779 0.0139 185.96),
+   // ),
 );
 
 // Has Themes
@@ -53,84 +36,24 @@ $default-brand: "primary";
 // Background-colors
 $background-colors: (
   canvas: (
-    gradient-start: (
-      light: "gradient-1-start",
-      dark: "gradient-2-start",
-    ),
-    gradient-end: (
-      light: "gradient-1-end",
-      dark: "gradient-2-end",
+    default: (
+      light: "neutral-000",
+      dark: "neutral-900",
     ),
   ),
   container: (
     default: (
-      light: "neutral-000",
-      dark: "neutral-800",
-    ),
-    header: (
-      light: "neutral-000",
-      dark: "neutral-800",
-    ),
-  ),
-  mobile-nav: (
-    menu: (
-      light: "neutral-000",
-      dark: "neutral-000",
-    ),
-    overlay: (
-      light: "transparent",
-      dark: "transparent",
+      light: "neutral-000" 0.75,
+      dark: "neutral-900" 0.75,
     ),
   ),
   text: (
     selection: (
-      light: "brand-700",
-      dark: "brand-500",
-    ),
-    target: (
-      light: "brand-700",
-      dark: "brand-500",
-    ),
-  ),
-  icon-theme: (
-    idle: (
-      light: "neutral-100",
-      dark: "neutral-700",
-    ),
-    hover: (
-      light: "neutral-300",
-      dark: "neutral-600",
-    ),
-  ),
-  toggle-track-inactive: (
-    idle: (
-      light: "neutral-300",
-      dark: "neutral-600",
-    ),
-    hover: (
-      light: "neutral-300",
-      dark: "neutral-600",
-    ),
-  ),
-  toggle-track-active: (
-    idle: (
-      light: "brand-700",
-      dark: "brand-400",
-    ),
-    hover: (
-      light: "brand-500",
-      dark: "brand-500",
-    ),
-  ),
-  toggle-thumb-inactive: (
-    default: (
-      light: "neutral-000",
+      light: "neutral-800",
       dark: "neutral-000",
     ),
-  ),
-  toggle-thumb-active: (
-    default: (
-      light: "neutral-000",
+    target: (
+      light: "neutral-800",
       dark: "neutral-000",
     ),
   ),
@@ -140,40 +63,26 @@ $background-colors: (
 $foreground-colors: (
   text: (
     base: (
-      light: "neutral-600",
-      dark: "neutral-300",
-    ),
-    strong: (
-      light: "neutral-900",
+      light: "neutral-000",
       dark: "neutral-000",
     ),
     selection: (
-      light: "neutral-100",
-      dark: "neutral-000",
+      light: "neutral-000",
+      dark: "neutral-800",
     ),
     target: (
-      light: "neutral-100",
-      dark: "neutral-000",
+      light: "neutral-000",
+      dark: "neutral-800",
     ),
   ),
-  icon-theme: (
+  svg-refresh: (
     idle: (
-      light: "neutral-900",
-      dark: "neutral-000",
+      light: "neutral-000" 0.5,
+      dark: "neutral-000" 0.5,
     ),
     hover: (
-      light: "neutral-900",
+      light: "neutral-000",
       dark: "neutral-000",
-    ),
-  ),
-  logo: (
-    text: (
-      light: "neutral-900",
-      dark: "neutral-000",
-    ),
-    visual: (
-      light: "brand-700",
-      dark: "brand-400",
     ),
   ),
 );

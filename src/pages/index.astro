@@ -5,6 +5,10 @@ import { sitePages } from "@/data/siteData";
 // Layout import
 import MainLayout from "@layouts/MainLayout.astro";
 
+// Component imports
+import Quote from "@/components/ui/Quote.astro";
+import Overview from "@/components/ui/Overview.astro";
+
 const page = sitePages.home;
 ---
 
@@ -13,5 +17,9 @@ const page = sitePages.home;
   description={page.description}
   ogImage={page.ogImage}
 >
-  Main
+  <div class="layout">
+    <h1 class="visually-hidden">Local Time Clock and Date information</h1>
+    <Quote />
+    <Overview />
+  </div>
 </MainLayout>

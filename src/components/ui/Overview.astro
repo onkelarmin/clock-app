@@ -1,0 +1,84 @@
+---
+// Asset imports
+import SunSvg from "@svg/icon-sun.svg";
+import MoonSvg from "@svg/icon-moon.svg";
+
+// Component imports
+import Button from "@components/ui/Button.astro";
+---
+
+<section aria-label="Current local time">
+  <div class="content">
+    <!-- Headline -->
+    <div class="headline">
+      <div class="icon">
+        <SunSvg class="sun" aria-hidden="true" />
+        <MoonSvg class="moon" aria-hidden="true" />
+      </div>
+      <p class="text">
+        <span class="greeting">Good morning</span><span>, it's currently</span>
+      </p>
+    </div>
+
+    <!-- Time -->
+    <div class="time-container">
+      <time class="time" datetime="2026-02-03T09:14">09:14</time>
+      <span class="timezone">BST</span>
+    </div>
+
+    <!-- Location -->
+    <p class="location">in London, UK</p>
+  </div>
+
+  <!-- Expand button -->
+  <Button text="more" icon />
+</section>
+
+<style lang="scss">
+  @use "@sass/miscellaneous" as *;
+
+  //   Headline
+  .headline {
+    display: flex;
+    gap: var(--space-cont-md);
+    align-items: center;
+
+    .icon svg {
+      width: var(--size-svg-theme);
+    }
+
+    .text {
+      font: var(--font-5);
+      letter-spacing: var(--ls-5);
+      text-transform: uppercase;
+
+      span:last-child {
+        display: none;
+
+        @include mq(medium) {
+          display: inline;
+        }
+      }
+    }
+  }
+
+  //   Time
+  .time-container {
+    .time {
+      font: var(--font-1);
+      letter-spacing: var(--ls-1);
+    }
+
+    .timezone {
+      font: var(--font-3);
+      letter-spacing: var(--ls-3);
+    }
+  }
+
+  //   Location
+  .location {
+    font: var(--font-4);
+    letter-spacing: var(--ls-4);
+    text-transform: uppercase;
+  }
+</style>

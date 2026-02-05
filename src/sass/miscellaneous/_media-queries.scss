@@ -5,7 +5,7 @@
 
 @mixin mq($size, $type: min) {
   @if map.has-key($breakpoints, $size) {
-    $breakpoint: px-to-em(map.get($breakpoints, $size));
+    $breakpoint: em(map.get($breakpoints, $size));
     @media screen and (#{$type}-width: $breakpoint) {
       @content;
     }
@@ -13,7 +13,7 @@
     @if math.is-unitless($size) {
       @error 'when using a number with @mq() make sure to include a unit';
     } @else {
-      @media screen and (#{$type}-width: px-to-em($size)) {
+      @media screen and (#{$type}-width: em($size)) {
         @content;
       }
     }

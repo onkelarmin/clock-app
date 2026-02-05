@@ -7,8 +7,6 @@ import type { HTMLAttributes } from "astro/types";
 
 // Component imports
 import BaseHead from "@layouts/BaseHead.astro";
-import SkipNavLink from "@/components/layout/SkipNavLink.astro";
-import Header from "@/components/layout/Header.astro";
 
 interface Props extends HTMLAttributes<"html"> {
   title: string;
@@ -19,8 +17,6 @@ interface Props extends HTMLAttributes<"html"> {
 
 <html lang="en">
   <BaseHead {...Astro.props} />
-  <SkipNavLink />
-  <Header />
   <body>
     <main id="main">
       <slot />
