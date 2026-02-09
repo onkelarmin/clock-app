@@ -46,6 +46,7 @@ const { type = "button", text, icon = false, classes, ...rest } = Astro.props;
     padding-inline-end: var(--btn-padding-inline-end-default);
     padding-block: var(--btn-padding-block-default);
 
+    // Icon
     .icon {
       display: grid;
       place-items: center;
@@ -53,10 +54,18 @@ const { type = "button", text, icon = false, classes, ...rest } = Astro.props;
       aspect-ratio: 1;
       border-radius: var(--br-round);
       background-color: var(--btn-icon-bg-color-idle-default);
-      transition: background-color var(--trans-default);
+      transition:
+        background-color var(--trans-default),
+        transform var(--trans-default-sensitive);
 
       svg {
         width: var(--btn-icon-width-default);
+      }
+    }
+
+    &[aria-expanded="true"] {
+      .icon {
+        transform: rotate(180deg);
       }
     }
 

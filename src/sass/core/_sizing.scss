@@ -27,6 +27,8 @@ $static-sizes: (
 
 // Breakpoint-specific sizes
 $breakpoint-specific-sizes: (
+  (16px, 40px, 40px),
+  (16px, 40px, 80px),
   (24px, 40px, 40px),
   (32px, 64px, 64px),
   (48px, 112px, 80px),

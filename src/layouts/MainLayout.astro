@@ -2,11 +2,18 @@
 // Stylesheet import
 import "@sass/main.scss";
 
-// Type imports
-import type { HTMLAttributes } from "astro/types";
+// Integrations
+import { Image } from "astro:assets";
 
 // Component imports
 import BaseHead from "@layouts/BaseHead.astro";
+
+// Asset imports
+import dayTimeImage from "@assets/bg-daytime-desktop.jpg";
+import nightTimeImage from "@assets/bg-nighttime-desktop.jpg";
+
+// Type imports
+import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"html"> {
   title: string;
@@ -18,8 +25,56 @@ interface Props extends HTMLAttributes<"html"> {
 <html lang="en">
   <BaseHead {...Astro.props} />
   <body>
+    <div class="bg-image" data-theme="night">
+      <Image
+        class="daytime"
+        src={dayTimeImage}
+        layout="full-width"
+        priority
+        alt="Sunlight glimmers on a river in Yosemite, highlighting the natural beauty of the landscape."
+      />
+      <Image
+        class="nighttime"
+        src={nightTimeImage}
+        layout="full-width"
+        priority
+        alt="The Milky Way stretches across a starry night sky above silhouetted trees."
+      />
+    </div>
     <main id="main">
       <slot />
     </main>
   </body>
 </html>
+
+<style lang="scss">
+  .bg-image {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: clip;
+
+    > * {
+      height: 100%;
+    }
+
+    // OVerlay
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: var(--bg-canvas-overlay);
+    }
+
+    &[data-theme="day"] {
+      .nighttime {
+        display: none;
+      }
+    }
+    &[data-theme="night"] {
+      .daytime {
+        display: none;
+      }
+    }
+  }
+</style>

@@ -3,30 +3,33 @@
 import RefreshSvg from "@svg/icon-refresh.svg";
 ---
 
-<div class="layout">
-  <figure>
-    <blockquote>
-      <p class="quote-content">
-        “The science of operations, as derived from mathematics more especially,
-        is a science of itself, and has its own abstract truth and value.”
-      </p>
-    </blockquote>
+<section id="quote-section">
+  <div class="layout">
+    <figure>
+      <blockquote>
+        <p class="quote-content">
+          “The science of operations, as derived from mathematics more
+          especially, is a science of itself, and has its own abstract truth and
+          value.”
+        </p>
+      </blockquote>
 
-    <figcaption class="quote-author">Ada Lovelace</figcaption>
-  </figure>
+      <figcaption class="quote-author">Ada Lovelace</figcaption>
+    </figure>
 
-  <button class="quote-button" type="button">
-    <RefreshSvg class="refresh-svg" />
-    <span class="visually-hidden">Load another quote</span>
-  </button>
-</div>
+    <button class="quote-button" type="button">
+      <RefreshSvg class="refresh-svg" />
+      <span class="visually-hidden">Load another quote</span>
+    </button>
+  </div>
+</section>
 
 <style lang="scss">
   .layout {
     --button-padding: var(--size-2);
 
     display: flex;
-    gap: calc(var(--space-cont-md) - var(--button-padding));
+    gap: calc(var(--space-cont-sm) - var(--button-padding));
 
     .quote-content {
       max-width: 48ch;
@@ -37,7 +40,7 @@ import RefreshSvg from "@svg/icon-refresh.svg";
     .quote-author {
       font: var(--font-7);
       letter-spacing: var(--ls-7);
-      margin-block-start: var(--space-cont-sm);
+      margin-block-start: var(--space-cont-xs);
     }
 
     .quote-button {

@@ -7,8 +7,8 @@ import MoonSvg from "@svg/icon-moon.svg";
 import Button from "@components/ui/Button.astro";
 ---
 
-<section aria-label="Current local time">
-  <div class="content">
+<section id="overview-section" aria-label="Current local time">
+  <div class="content flow-xl">
     <!-- Headline -->
     <div class="headline">
       <div class="icon">
@@ -31,20 +31,40 @@ import Button from "@components/ui/Button.astro";
   </div>
 
   <!-- Expand button -->
-  <Button text="more" icon />
+  <Button
+    text="more"
+    icon
+    aria-controls="details-section"
+    aria-expanded="false"
+  />
 </section>
 
 <style lang="scss">
   @use "@sass/miscellaneous" as *;
 
+  // Section
+  section {
+    display: grid;
+    gap: var(--space-cont-2xl);
+    align-items: end;
+
+    @include mq(large) {
+      grid-template-columns: 1fr auto;
+    }
+  }
+
   //   Headline
   .headline {
     display: flex;
-    gap: var(--space-cont-md);
+    gap: var(--space-cont-sm);
     align-items: center;
 
     .icon svg {
       width: var(--size-svg-theme);
+
+      &.moon {
+        display: none;
+      }
     }
 
     .text {

@@ -1,7 +1,7 @@
 body {
   color: var(--fg-text-base);
   background-color: var(--bg-canvas-default);
-  padding-block-end: var(--pad-page-block-end);
+  overflow: clip;
 }
 
 ::selection {

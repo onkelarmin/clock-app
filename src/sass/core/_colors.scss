@@ -40,9 +40,13 @@ $background-colors: (
       light: "neutral-000",
       dark: "neutral-900",
     ),
+    overlay: (
+      light: "neutral-900" 0.4,
+      dark: "neutral-900" 0.4,
+    ),
   ),
   container: (
-    default: (
+    details: (
       light: "neutral-000" 0.75,
       dark: "neutral-900" 0.75,
     ),
@@ -64,6 +68,10 @@ $foreground-colors: (
   text: (
     base: (
       light: "neutral-000",
+      dark: "neutral-000",
+    ),
+    details: (
+      light: "neutral-800",
       dark: "neutral-000",
     ),
     selection: (

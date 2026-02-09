@@ -1,0 +1,96 @@
+---
+// Component imports
+import Wrapper from "@/components/utilities/Wrapper.astro";
+---
+
+<section id="details-section" aria-labelledby="details-title" inert>
+  <h2 id="details-title" class="visually-hidden">Time details</h2>
+  <Wrapper>
+    <dl class="layout">
+      <div class="group-1">
+        <div class="stat">
+          <dt>Current timezone</dt>
+          <dd>Europe/London</dd>
+        </div>
+        <div class="stat">
+          <dt>Day of the year</dt>
+          <dd>295</dd>
+        </div>
+      </div>
+      <div class="group-2">
+        <div class="stat">
+          <dt>Day of the week</dt>
+          <dd>5</dd>
+        </div>
+        <div class="stat">
+          <dt>Week number</dt>
+          <dd>42</dd>
+        </div>
+      </div>
+    </dl>
+  </Wrapper>
+</section>
+
+<style lang="scss">
+  @use "@sass/miscellaneous" as *;
+
+  section {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-container-details);
+    color: var(--fg-text-details);
+    padding-block: var(--pad-cont-details-block);
+    opacity: 0;
+    transform: translateY(100%);
+
+    .layout {
+      display: grid;
+      gap: var(--space-cont-md);
+
+      .group-1,
+      .group-2 {
+        display: grid;
+        gap: var(--space-cont-md);
+      }
+
+      @include mq(medium) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @include mq(large) {
+        gap: 0;
+
+        .group-1 {
+          border-right: var(--border-divider);
+          padding-inline-end: calc(2 * var(--space-cont-md));
+        }
+        .group-2 {
+          padding-inline-start: calc(2 * var(--space-cont-md));
+        }
+      }
+    }
+
+    .stat {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: var(--space-cont-xs);
+
+      @include mq(medium) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    dt {
+      font: var(--font-9);
+      letter-spacing: var(--ls-9);
+      text-transform: uppercase;
+    }
+    dd {
+      font: var(--font-2);
+      letter-spacing: var(--ls-2);
+    }
+  }
+</style>

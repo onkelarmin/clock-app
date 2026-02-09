@@ -6,8 +6,10 @@ import { sitePages } from "@/data/siteData";
 import MainLayout from "@layouts/MainLayout.astro";
 
 // Component imports
+import Wrapper from "@/components/utilities/Wrapper.astro";
 import Quote from "@/components/ui/Quote.astro";
 import Overview from "@/components/ui/Overview.astro";
+import Details from "@/components/ui/Details.astro";
 
 const page = sitePages.home;
 ---
@@ -17,9 +19,23 @@ const page = sitePages.home;
   description={page.description}
   ogImage={page.ogImage}
 >
-  <div class="layout">
-    <h1 class="visually-hidden">Local Time Clock and Date information</h1>
-    <Quote />
-    <Overview />
-  </div>
+  <Wrapper>
+    <div class="layout">
+      <h1 class="visually-hidden">Local Time Clock and Date information</h1>
+      <Quote />
+      <Overview />
+    </div>
+  </Wrapper>
+  <Details />
 </MainLayout>
+
+<style lang="scss">
+  .layout {
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-block-start: var(--pad-page-inline-start);
+    padding-block-end: var(--pad-page-inline-end);
+  }
+</style>

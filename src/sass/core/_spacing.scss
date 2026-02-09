@@ -19,8 +19,10 @@ $padding-container: (
 
 // Container spacing
 $spacer-container: (
-  sm: rem(12px),
-  md: rem(16px),
-  lg: bp(48px, 112px, 80px),
-  xl: bp(64px, 80px, 80px),
+  xs: rem(12px),
+  sm: rem(16px),
+  md: bp(16px, 40px, 40px),
+  lg: bp(16px, 40px, 80px),
+  xl: bp(24px, 40px, 40px),
+  2xl: bp(64px, 80px, 80px),
 );
