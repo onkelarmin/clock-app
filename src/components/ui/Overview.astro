@@ -11,7 +11,7 @@ import Button from "@components/ui/Button.astro";
   <div class="content flow-xl">
     <!-- Headline -->
     <div class="headline">
-      <div class="icon">
+      <div class="icon" data-theme="night">
         <SunSvg class="sun" aria-hidden="true" />
         <MoonSvg class="moon" aria-hidden="true" />
       </div>
@@ -59,11 +59,21 @@ import Button from "@components/ui/Button.astro";
     gap: var(--space-cont-sm);
     align-items: center;
 
-    .icon svg {
-      width: var(--size-svg-theme);
+    .icon {
+      svg {
+        width: var(--size-svg-theme);
+      }
 
-      &.moon {
-        display: none;
+      &[data-theme="day"] {
+        .moon {
+          display: none;
+        }
+      }
+
+      &[data-theme="night"] {
+        .sun {
+          display: none;
+        }
       }
     }
 

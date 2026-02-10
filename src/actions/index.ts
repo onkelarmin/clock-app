@@ -12,4 +12,15 @@ export const server = {
       return res.json();
     },
   }),
+  getTime: defineAction({
+    handler: async () => {
+      const res = await fetch("https://time.now/developer/api/ip");
+
+      if (!res.ok) {
+        throw new Error("Upstream service failed");
+      }
+
+      return res.json();
+    },
+  }),
 };
