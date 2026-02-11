@@ -1,6 +1,13 @@
 ---
+// Integrations
+import { actions } from "astro:actions";
+
 // Asset imports
 import RefreshSvg from "@svg/icon-refresh.svg";
+
+const { data } = await Astro.callAction(actions.getQuote, undefined);
+
+const { q: quote, a: author } = data[0];
 ---
 
 <section id="quote-section">
@@ -8,13 +15,11 @@ import RefreshSvg from "@svg/icon-refresh.svg";
     <figure>
       <blockquote>
         <p class="quote-content">
-          “The science of operations, as derived from mathematics more
-          especially, is a science of itself, and has its own abstract truth and
-          value.”
+          {quote}
         </p>
       </blockquote>
 
-      <figcaption class="quote-author">Ada Lovelace</figcaption>
+      <figcaption class="quote-author">{author}</figcaption>
     </figure>
 
     <button class="quote-button" type="button">

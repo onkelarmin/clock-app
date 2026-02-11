@@ -27,6 +27,4 @@ export async function initDisplayQuote() {
   };
 
   quoteButton.addEventListener("click", loadQuote);
-
-  loadQuote();
 }

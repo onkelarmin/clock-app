@@ -21,8 +21,6 @@ const { data } = await Astro.callAction(actions.getTime, undefined);
 
 const timeState = deriveTimeState(data);
 
-const rest = JSON.stringify(timeState);
-
 const page = sitePages.home;
 ---
 
