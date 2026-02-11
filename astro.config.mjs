@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
   site: "https://fm-recipe-finder-website.netlify.app/",
   image: {
     responsiveStyles: true,

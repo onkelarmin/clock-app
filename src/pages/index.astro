@@ -1,4 +1,7 @@
 ---
+// Integrations
+import { actions } from "astro:actions";
+
 // Import Site data
 import { sitePages } from "@/data/siteData";
 
@@ -11,6 +14,15 @@ import Quote from "@/components/ui/Quote.astro";
 import Overview from "@/components/ui/Overview.astro";
 import Details from "@/components/ui/Details.astro";
 
+// Helper functions
+import { deriveTimeState } from "@/lib/deriveTimeState";
+
+const { data } = await Astro.callAction(actions.getTime, undefined);
+
+const timeState = deriveTimeState(data);
+
+const rest = JSON.stringify(timeState);
+
 const page = sitePages.home;
 ---
 
@@ -18,15 +30,23 @@ const page = sitePages.home;
   title={page.title}
   description={page.description}
   ogImage={page.ogImage}
+  timeState={timeState}
 >
   <Wrapper>
     <div class="layout">
       <h1 class="visually-hidden">Local Time Clock and Date information</h1>
       <Quote />
-      <Overview />
+      <Overview timeState={timeState} />
     </div>
   </Wrapper>
-  <Details />
+  <Details timeState={timeState} />
+
+  <!-- Pass initial timeState -->
+  <script
+    id="time-state"
+    type="application/json"
+    set:html={JSON.stringify(timeState)}
+  />
 </MainLayout>
 
 <style lang="scss">

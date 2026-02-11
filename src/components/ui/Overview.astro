@@ -5,29 +5,52 @@ import MoonSvg from "@svg/icon-moon.svg";
 
 // Component imports
 import Button from "@components/ui/Button.astro";
+
+// Type imports
+import type { HTMLAttributes } from "astro/types";
+import type { TimeState } from "@/lib/deriveTimeState";
+
+// Props
+interface Props extends HTMLAttributes<"section"> {
+  timeState: TimeState;
+}
+
+const { timeState } = Astro.props;
+
+const date = new Date(timeState.timestamp);
 ---
 
 <section id="overview-section" aria-label="Current local time">
   <div class="content flow-xl">
     <!-- Headline -->
     <div class="headline">
-      <div class="icon" data-theme="night">
+      <div class="icon" data-theme={timeState.dayTime}>
         <SunSvg class="sun" aria-hidden="true" />
         <MoonSvg class="moon" aria-hidden="true" />
       </div>
       <p class="text">
-        <span class="greeting">Good morning</span><span>, it's currently</span>
+        <span class="greeting">Good {timeState.greeting}</span><span
+          >, it's currently</span
+        >
       </p>
     </div>
 
     <!-- Time -->
     <div class="time-container">
-      <time class="time" datetime="2026-02-03T09:14">09:14</time>
-      <span class="timezone">BST</span>
+      <time class="time" datetime={date.toISOString()}
+        >{
+          date.toLocaleTimeString(undefined, {
+            hour: "numeric",
+            minute: "numeric",
+            hour12: false,
+          })
+        }</time
+      >
+      <span class="timezone">{timeState.timezoneShort}</span>
     </div>
 
     <!-- Location -->
-    <p class="location">in London, UK</p>
+    <p class="location">in {timeState.city}, {timeState.continent}</p>
   </div>
 
   <!-- Expand button -->

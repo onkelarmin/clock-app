@@ -1,6 +1,17 @@
 ---
 // Component imports
 import Wrapper from "@/components/utilities/Wrapper.astro";
+
+// Type imports
+import type { TimeState } from "@/lib/deriveTimeState";
+import type { HTMLAttributes } from "astro/types";
+
+// Props
+interface Props extends HTMLAttributes<"section"> {
+  timeState: TimeState;
+}
+
+const { timeState } = Astro.props;
 ---
 
 <section id="details-section" aria-labelledby="details-title" inert>
@@ -10,21 +21,21 @@ import Wrapper from "@/components/utilities/Wrapper.astro";
       <div class="group-1">
         <div class="stat timezone">
           <dt>Current timezone</dt>
-          <dd>Europe/London</dd>
+          <dd>{timeState.continent}/{timeState.city}</dd>
         </div>
         <div class="stat day-of-the-year">
           <dt>Day of the year</dt>
-          <dd>295</dd>
+          <dd>{timeState.dayOfYear}</dd>
         </div>
       </div>
       <div class="group-2">
         <div class="stat day-of-the-week">
           <dt>Day of the week</dt>
-          <dd>5</dd>
+          <dd>{timeState.dayOfWeek}</dd>
         </div>
         <div class="stat week-number">
           <dt>Week number</dt>
-          <dd>42</dd>
+          <dd>{timeState.weekNumber}</dd>
         </div>
       </div>
     </dl>
