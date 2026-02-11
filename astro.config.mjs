@@ -6,7 +6,7 @@ import netlify from "@astrojs/netlify";
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  site: "https://fm-recipe-finder-website.netlify.app/",
+  site: "https://fm-smart-clock-app.netlify.app/",
 
   image: {
     responsiveStyles: true,

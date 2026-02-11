@@ -7,5 +7,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initAnimations();
   initShowMore();
   initDisplayQuote();
-  // initDisplayTime();
+  initDisplayTime();
 });
