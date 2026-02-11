@@ -28,8 +28,8 @@ export function deriveTimeState(data: TimeApiData): TimeState {
   const min = date.getMinutes();
 
   const split = data.timezone.split("/");
-  const continent = split[0] ?? "";
-  const city = split[1] ?? "";
+  const continent = split[0].replaceAll("_", " ") ?? "";
+  const city = split[1].replaceAll("_", " ") ?? "";
   const timezoneShort = data.abbreviation;
   const dayOfWeek = String(data.day_of_week);
   const dayOfYear = String(data.day_of_year);
