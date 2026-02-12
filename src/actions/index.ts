@@ -14,8 +14,10 @@ export const server = {
   }),
   getTime: defineAction({
     handler: async (_, context) => {
-      console.log("test");
-      console.log("Context: ", context.request.headers);
+      const forwarded = context.request.headers.get("x-forwarded-for");
+      console.log("Forwarded: ", forwarded);
+
+      const ip = forwarded?.split(",")[0].trim();
 
       const res = await fetch("https://time.now/developer/api/ip");
 
