@@ -28,7 +28,8 @@ export const server = {
         throw new Error("Upstream service failed");
       }
 
-      console.log("Response: ", res.json());
+      const test = await res.json();
+      console.log("response: ", test);
 
       return res.json();
     },
