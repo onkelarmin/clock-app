@@ -23,8 +23,11 @@ export type TimeState = {
 
 export function deriveTimeState(data: TimeApiData): TimeState {
   const date = new Date(data.datetime);
+  console.log("Date: ", date);
   const timestamp = date.getTime();
   const hour = date.getHours();
+  console.log("wrong hour: ", hour);
+  console.log("manual hour: ", date.getHours());
   const min = date.getMinutes();
 
   const split = data.timezone.split("/");
