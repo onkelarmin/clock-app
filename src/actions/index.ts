@@ -14,12 +14,13 @@ export const server = {
   }),
   getTime: defineAction({
     handler: async (_, context) => {
-      const forwarded = context.request.headers.get("x-forwarded-for");
-      console.log("Forwarded: ", forwarded);
+      const forwardedFor = context.request.headers.get("x-forwarded-for");
+      console.log("Forwarded: ", forwardedFor);
 
-      const ip = forwarded?.split(",")[0].trim();
+      const ip = forwardedFor?.split(",")[0].trim();
+      console.log(ip);
 
-      const res = await fetch("https://time.now/developer/api/ip");
+      const res = await fetch(`https://time.now/developer/api/ip/${ip}`);
 
       if (!res.ok) {
         throw new Error("Upstream service failed");
