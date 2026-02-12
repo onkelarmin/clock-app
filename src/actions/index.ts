@@ -15,16 +15,20 @@ export const server = {
   getTime: defineAction({
     handler: async (_, context) => {
       const forwardedFor = context.request.headers.get("x-forwarded-for");
-      console.log("Forwarded: ", forwardedFor);
 
       const ip = forwardedFor?.split(",")[0].trim();
-      console.log(ip);
 
-      const res = await fetch(`https://time.now/developer/api/ip/${ip}`);
+      const url = ip
+        ? `https://time.now/developer/api/ip/${ip}`
+        : "https://time.now/developer/api/ip";
+
+      const res = await fetch(url);
 
       if (!res.ok) {
         throw new Error("Upstream service failed");
       }
+
+      console.log("Response: ", res.json());
 
       return res.json();
     },
