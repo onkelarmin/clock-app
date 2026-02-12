@@ -13,6 +13,7 @@ export type TimeState = {
   min: number;
   continent: string;
   city: string;
+  timezone: string;
   timezoneShort: string;
   dayOfWeek: string;
   dayOfYear: string;
@@ -25,12 +26,23 @@ export function deriveTimeState(data: TimeApiData): TimeState {
   const date = new Date(data.datetime);
   console.log("Date: ", date);
   const timestamp = date.getTime();
-  const hour = date.getHours();
-  console.log("wrong hour: ", hour);
-  console.log("manual hour: ", date.getHours());
-  const min = date.getMinutes();
+  const timezone = data.timezone;
 
-  const split = data.timezone.split("/");
+  const hourFormatter = new Intl.DateTimeFormat(undefined, {
+    hour: "numeric",
+    hour12: false,
+    timeZone: timezone,
+  });
+  const minFormatter = new Intl.DateTimeFormat(undefined, {
+    minute: "numeric",
+    hour12: false,
+    timeZone: timezone,
+  });
+
+  const hour = Number(hourFormatter.format(date));
+  const min = Number(minFormatter.format(date));
+
+  const split = timezone.split("/");
   const continent = split[0].replaceAll("_", " ") ?? "";
   const city = split[1].replaceAll("_", " ") ?? "";
   const timezoneShort = data.abbreviation;
@@ -47,6 +59,7 @@ export function deriveTimeState(data: TimeApiData): TimeState {
     min,
     continent,
     city,
+    timezone,
     timezoneShort,
     dayOfWeek,
     dayOfYear,
