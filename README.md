@@ -69,4 +69,4 @@ Built by Armin as part of a Frontend Mentor challenge.
 
 ## Preview
 
-<video src="./public/preview/preview.mp4" controls width="100%"></video>
+<video src="/preview/preview.mp4" controls width="100%"></video>
