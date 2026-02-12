@@ -1,43 +1,72 @@
-# Astro Starter Kit: Minimal
+# Clock App
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A timezone-aware clock application that displays the current time, location, and additional date information based on the user's IP address. The app dynamically adapts its greeting, theme, and background depending on the time of day, and includes a feature to generate random programming quotes. Server-side rendering ensures the correct state is shown immediately on page load.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This project was built as part of a Frontend Mentor challenge and focuses on SSR hydration, timezone correctness, and efficient client-side state management.
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## Technologies Used
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- Astro (SSR and server-first architecture)
+- TypeScript
+- Netlify (hosting and serverless functions)
+- Astro Actions (server-client communication)
+- World Time API ([timezone and date data](https://time.now/developer/api/ip))
+- Quotes API ([random programming quotes](https://zenquotes.io/api/random))
+- SCSS
+- Vanilla JavaScript
+- GSAP
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Features
 
-Any static assets, like images, can be placed in the `public/` directory.
+- Detects user's timezone automatically via IP
+- Displays accurate local time and location
+- Dynamic greeting, theme, and background based on time of day
+- Expandable panel with additional date information:
+  - Timezone
+  - Day of the week
+  - Day of the year
+  - Week number
+- Generates random programming quotes on demand
+- Server-side rendering prevents flash of incorrect content
+- Efficient client-side ticking with hourly API synchronization
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## Build Process
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+The application uses a hybrid server-client architecture:
 
-## 👀 Want to learn more?
+- On initial request, the server fetches timezone data using the user's forwarded IP address
+- A timezone-aware state object is derived and rendered server-side
+- The state is serialized into the HTML and hydrated on the client
+- The clock updates locally using a timestamp as the source of truth
+- The server is contacted only when necessary to keep the data accurate
+- Quotes are fetched via a server-side endpoint to avoid CORS issues and provide consistent handling
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Shared utility functions ensure consistent timezone handling across server and client.
+
+---
+
+## Deployment
+
+Deployed on Netlify using the Astro Netlify adapter and serverless functions.
+
+---
+
+## Live Demo
+
+https://your-site.netlify.app
+
+---
+
+## Author
+
+Built by Armin as part of a Frontend Mentor challenge.
+
+## Preview
+
+<video src="./public/preview/preview.mp4" controls width="100%"></video>
