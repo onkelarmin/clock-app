@@ -1,5 +1,6 @@
 import { actions } from "astro:actions";
 import { deriveTimeState, type TimeState } from "@/lib/deriveTimeState";
+import { formatTime } from "@/lib/formatTime";
 
 export async function initDisplayTime() {
   const root = document.documentElement;
@@ -82,11 +83,10 @@ export async function initDisplayTime() {
 
     overviewIcon.dataset.theme = timeState.dayTime;
     overviewGreeting.textContent = `Good ${timeState.greeting}`;
-    overviewTime.textContent = date.toLocaleTimeString(undefined, {
-      hour: "numeric",
-      minute: "numeric",
-      hour12: false,
-    });
+    overviewTime.textContent = formatTime(
+      timeState.timestamp,
+      timeState.timezone,
+    );
     overviewTime.setAttribute("datetime", date.toISOString());
     overviewTimezone.textContent = timeState.timezoneShort;
     overviewLocation.textContent = `in ${timeState.city}, ${timeState.continent}`;
@@ -108,23 +108,23 @@ export async function initDisplayTime() {
     });
   };
 
-  // loadData();
+  loadData();
 
   // Tick
-  // setInterval(() => {
-  //   timeState.timestamp += 1000;
-  //   const date = new Date(timeState.timestamp);
+  setInterval(() => {
+    timeState.timestamp += 1000;
+    const date = new Date(timeState.timestamp);
 
-  //   const newHour = date.getHours();
-  //   const newMin = date.getMinutes();
+    const newHour = date.getHours();
+    const newMin = date.getMinutes();
 
-  //   if (timeState.hour !== newHour) {
-  //     timeState.hour = newHour;
-  //     loadData();
-  //   }
-  //   if (timeState.min !== newMin) {
-  //     renderTimeOnly();
-  //     timeState.min = newMin;
-  //   }
-  // }, 1000);
+    if (timeState.hour !== newHour) {
+      timeState.hour = newHour;
+      loadData();
+    }
+    if (timeState.min !== newMin) {
+      renderTimeOnly();
+      timeState.min = newMin;
+    }
+  }, 1000);
 }
