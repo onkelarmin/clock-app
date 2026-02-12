@@ -14,16 +14,9 @@ export const server = {
   }),
   getTime: defineAction({
     handler: async (_, context) => {
-      const forwardedFor = context.request.headers.get("x-forwarded-for");
+      console.log(context.request.headers);
 
-      const ip = forwardedFor?.split(",")[0]?.trim();
-
-      const url = ip
-        ? `https://worldtimeapi.org/api/ip/${ip}`
-        : `https://worldtimeapi.org/api/ip`;
-
-      // const res = await fetch("https://time.now/developer/api/ip");
-      const res = await fetch(url);
+      const res = await fetch("https://time.now/developer/api/ip");
 
       if (!res.ok) {
         throw new Error("Upstream service failed");
