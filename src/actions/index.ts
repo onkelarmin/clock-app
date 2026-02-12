@@ -14,7 +14,8 @@ export const server = {
   }),
   getTime: defineAction({
     handler: async (_, context) => {
-      console.log(context.request.headers);
+      console.log("test");
+      console.log("Context: ", context.request.headers);
 
       const res = await fetch("https://time.now/developer/api/ip");
 
