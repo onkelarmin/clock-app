@@ -99,13 +99,10 @@ export async function initDisplayTime() {
 
   // Render Time only
   const renderTimeOnly = () => {
-    const date = new Date(timeState.timestamp);
-
-    overviewTime.textContent = date.toLocaleTimeString(undefined, {
-      hour: "numeric",
-      minute: "numeric",
-      hour12: false,
-    });
+    overviewTime.textContent = formatTime(
+      timeState.timestamp,
+      timeState.timezone,
+    );
   };
 
   loadData();

@@ -19,11 +19,7 @@ import { deriveTimeState } from "@/lib/deriveTimeState";
 
 const { data } = await Astro.callAction(actions.getTime, undefined);
 
-console.log("Data: ", data);
-
 const timeState = deriveTimeState(data);
-
-console.log("TimeState: ", timeState);
 
 const page = sitePages.home;
 ---

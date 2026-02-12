@@ -24,7 +24,6 @@ export type TimeState = {
 
 export function deriveTimeState(data: TimeApiData): TimeState {
   const date = new Date(data.datetime);
-  console.log("Date: ", date);
   const timestamp = date.getTime();
   const timezone = data.timezone;
 
