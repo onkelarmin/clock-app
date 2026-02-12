@@ -22,14 +22,13 @@ export const server = {
         ? `https://time.now/developer/api/ip/${ip}`
         : "https://time.now/developer/api/ip";
 
+      console.log("URL: ", url);
+
       const res = await fetch(url);
 
       if (!res.ok) {
         throw new Error("Upstream service failed");
       }
-
-      const test = await res.json();
-      console.log("response: ", test);
 
       return res.json();
     },

@@ -56,6 +56,7 @@ export async function initDisplayTime() {
   };
 
   let timeState = getInitialState();
+  console.log(timeState);
 
   // Load data
   const loadData = async () => {
@@ -108,23 +109,23 @@ export async function initDisplayTime() {
     });
   };
 
-  loadData();
+  // loadData();
 
   // Tick
-  setInterval(() => {
-    timeState.timestamp += 1000;
-    const date = new Date(timeState.timestamp);
+  // setInterval(() => {
+  //   timeState.timestamp += 1000;
+  //   const date = new Date(timeState.timestamp);
 
-    const newHour = date.getHours();
-    const newMin = date.getMinutes();
+  //   const newHour = date.getHours();
+  //   const newMin = date.getMinutes();
 
-    if (timeState.hour !== newHour) {
-      timeState.hour = newHour;
-      loadData();
-    }
-    if (timeState.min !== newMin) {
-      renderTimeOnly();
-      timeState.min = newMin;
-    }
-  }, 1000);
+  //   if (timeState.hour !== newHour) {
+  //     timeState.hour = newHour;
+  //     loadData();
+  //   }
+  //   if (timeState.min !== newMin) {
+  //     renderTimeOnly();
+  //     timeState.min = newMin;
+  //   }
+  // }, 1000);
 }
