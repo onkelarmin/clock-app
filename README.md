@@ -69,4 +69,4 @@ Built by Armin as part of a Frontend Mentor challenge.
 
 ## Preview
 
-<video src="/preview/preview.mp4" controls width="100%"></video>
+[<video src="/preview/preview.mp4" controls width="100%"></video>](https://github.com/user-attachments/assets/8c191d82-aac3-4068-9b34-7533715a556f)
