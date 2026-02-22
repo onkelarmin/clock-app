@@ -59,13 +59,9 @@ Deployed on Netlify using the Astro Netlify adapter and serverless functions.
 
 ## Live Demo
 
-https://your-site.netlify.app
+[https://your-site.netlify.app](https://fm-smart-clock-app.netlify.app/)
 
 ---
-
-## Author
-
-Built by Armin as part of a Frontend Mentor challenge.
 
 ## Preview
 
